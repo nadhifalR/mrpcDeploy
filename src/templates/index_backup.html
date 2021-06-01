@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>mendingrakitpc.id</h1>
+     
+        <table>
+            <tr>
+                <th>Parts</th>
+                <th>Pick</th>
+            </tr>
+            {% for part in api.supported_parts %}
+                <tr>
+                    {% if part != "cpu" %}
+                        <td>{{ part }}</td> 
+                        <td>
+                            <select class="testing" name="testing">
+                                {% for picker in hmm[part] %}
+                                    <option value=" ">
+                                        {{ picker.values()|join(' ') }}
+                                    </option>
+                                {% endfor %}                                                                                 
+                            </select> 
+                        </td>
+                    {% endif %}                                         
+                </tr>  
+            {% endfor %}
+            
+            
+        </table>
+
+</div>
+{% endblock %}
