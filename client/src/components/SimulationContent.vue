@@ -350,7 +350,8 @@ export default {
             headphonesSelect: '',
             upsSelect: '',
             thermal_pasteSelect: ''
-        }
+        },
+        savedBuild: ''
     }
   },
   // Fetches posts when the component is created.
@@ -379,91 +380,92 @@ export default {
   },
   methods: {
     async loadcpu(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/cpu`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/cpu`)
     this.cpus = response.data
     },
     async loadmotherboard(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/motherboard`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/motherboard`)
     this.motherboards = response.data
     },
     async loadmemory(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/memory`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/memory`)
     this.memorys = response.data
     },
     async loadinternal_hard_drive(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/internal_hard_drive`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/internal_hard_drive`)
     this.internal_hard_drives = response.data
     },
     async loadexternal_hard_drive(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/external_hard_drive`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/external_hard_drive`)
     this.external_hard_drives = response.data
     },
     async loadcase(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/case`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/case`)
     this.cases = response.data
     },
     async loadvideo_card(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/video_card`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/video_card`)
     this.video_cards = response.data
     },
     async loadpower_supply(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/power_supply`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/power_supply`)
     this.power_supplys = response.data
     },
     async loadkeyboard(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/keyboard`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/keyboard`)
     this.keyboards = response.data
     },
     async loadmouse(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/mouse`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/mouse`)
     this.mouses = response.data
     },
     async loadmonitor(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/monitor`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/monitor`)
     this.monitors = response.data
     },
     async loadcpu_cooler(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/cpu_cooler`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/cpu_cooler`)
     this.cpu_coolers = response.data
     },
     async loadcase_fan(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/case_fan`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/case_fan`)
     this.case_fans = response.data
     },
     async loadwireless_network_card(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/wireless_network_card`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/wireless_network_card`)
     this.wireless_network_cards = response.data
     },
     async loadwired_network_card(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/wired_network_card`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/wired_network_card`)
     this.wired_network_cards = response.data
     },
     async loadoptical_drive(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/optical_drive`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/optical_drive`)
     this.optical_drives = response.data
     },
     async loadsound_card(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/sound_card`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/sound_card`)
     this.sound_cards = response.data
     },
     async loadspeakers(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/speakers`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/speakers`)
     this.speakerss = response.data
     },
     async loadheadphones(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/headphones`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/headphones`)
     this.headphoness = response.data
     },
     async loadups(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/ups`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/ups`)
     this.upss = response.data
     },
     async loadthermal_paste(){
-    const response = await axios.get(`http://127.0.0.1:5000/api/v1/parts/thermal_paste`)
+    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/thermal_paste`)
     this.thermal_pastes = response.data
     },
     async saveBuild(){
-      await axios.post(`http://127.0.0.1:5000/api/v1/builds/`, this.build, { headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS","Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"}})
+      const response = await axios.post(`https://34.101.183.41:5000/api/v1/builds/`, this.build, { headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS","Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"}})
+      this.savedBuild = response.data
     }
   }
 }

@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     async register(){
-      const response = await axios.post(`http://127.0.0.1:5000/api/v1/users/`, this.form)
+      const response = await axios.post(`https://34.101.183.41:5000/api/v1/users/`, this.form)
       this.token = response.data
       localStorage.setItem("token", token)
     }
