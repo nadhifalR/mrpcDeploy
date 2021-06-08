@@ -10,8 +10,18 @@
                 </div>
                 <div class="vertical-allign-center grid justify-center items-center">
                     <div class="sim-card-container grid">
-                        <BuildCard/>
-                        <BuildCard/>          
+                        <router-link v-for="build in builds.slice(-2)" :to="{name:'Save', params: {id: build.id} }" :key="build.id">
+                            <BuildCard  class="cursor-pointer">
+                                <p class="sim-rekcard-Title text-black text-xs md:text-sm xl:text-lg m-0 bg-green1">{{build.title}}</p>
+                                <p class="sim-rekcard-Subtitle text-black text-xs md:text-sm xl:text-lg m-0 bg-green1">Total Harga Rp.XX.XXX.XXX</p>
+                                <div class="sim-rekcard-detail text-xs text-white m0">
+                                    <p>{{build.cpu}}</p>
+                                    <p>{{build.memory}}</p>
+                                    <p>{{build.video_card}}</p>
+                                    <p>{{build.case}}</p>
+                                </div>
+                            </BuildCard>
+                        </router-link>        
                     </div>
                     <button @click="$router.push('/Build')" class="sim-rekcard-btn cursor-pointer text-black bg-green1 text-xl py-2 px-8 inline-block text-center my-2 mx-10 sm:mx-30 md:mx-24 lg:mx-36 xl:mx-36">Explore Builds</button> 
                 </div>
@@ -33,18 +43,36 @@ import BuildCard from './BuildCard.vue'
 import SimulationContent from './SimulationContent.vue'
 import Footer from './Footer.vue'
 
+const route = useRoute();
+const id = computed(() => route.params.id);
 // This starter template is using Vue 3 experimental <script setup> SFCs
 // Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
 </script>
 
 <script>
+import axios from 'axios'
+import { ref, computed } from 'vue'
+import { useRoute } from 'vue-router'
 
 export default{
-        mounted () {
+    data(){
+        return{
+            builds: []
+        }
+    },
+    mounted () {
         window.scrollTo(0, 0)
+    },
+    async mounted() {
+        this.loadBuilds();
+    },
+    methods: {
+        async loadBuilds(){
+            const response = await axios.get(`https://34.101.183.41:5000/api/v1/builds/`)
+            this.builds = response.data
+        }
     }
 }
-
 </script>
 
 <style>
