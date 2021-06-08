@@ -6,15 +6,15 @@
             <p>Harga</p>
         </div>
         <!-- gw tambahin yg di bawah comment ini -->
-        <form v-on:submit.prevent="saveBuild">
+        <form v-on:submit.prevent="loadsaveBuild">
         <!-- gw tambahin yg di atas comment ini -->    
         <div class="simulasi-container-horizontal text-xs lg:text-xl">
             <p>CPU</p>
             <div class="komp-selection">
                 <label for="cpu"></label>
-                    <select v-model="build.cpuSelect" name="cpu" id="cpu" class="form-control" tabindex="12">
+                    <select v-model="build.cpu" name="cpu" id="cpu" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose CPU</option>
-                        <option v-for="cpu in cpus" :value="cpu.id" :key="cpu.id">{{ cpu.Name }}</option>
+                        <option v-for="cpu in cpus" :value="cpu.Name" :key="cpu.id">{{ cpu.Name }}</option>
                     </select>
             </div>
             <p>Rp.x.xxx.xxx</p>
@@ -24,9 +24,9 @@
             <p>Motherboard</p>
             <div class="komp-selection">
                 <label for="motherboard"></label>
-                    <select v-model="build.motherboardSelect" id="motherboard" name="motherboard" class="form-control" tabindex="12">
+                    <select v-model="build.motherboard" id="motherboard" name="motherboard" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Motherboard</option>
-                        <option v-for="motherboard in motherboards" :value="motherboard.id" :key="motherboard.id">
+                        <option v-for="motherboard in motherboards" :value="motherboard.brand + ' ' + motherboard.model + ' ' + motherboard.socket + ' ' + motherboard.form_factor" :key="motherboard.id">
                             {{ motherboard.brand }} {{motherboard.model}} {{motherboard.socket}} {{motherboard.form_factor}}
                         </option>
                     </select>
@@ -38,9 +38,9 @@
             <p>Memory</p>
             <div class="komp-selection">
                 <label for="memory"></label>
-                    <select v-model="build.memorySelect" id="memory" name="memory" class="form-control" tabindex="12">
+                    <select v-model="build.memory" id="memory" name="memory" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Memory</option>
-                        <option v-for="memory in memorys" :value="memory.id" :key="memory.id">
+                        <option v-for="memory in memorys" :value="memory.brand + ' ' + memory.model + ' ' + memory.module_type + ' ' + memory.speed_cycles" :key="memory.id">
                             {{ memory.brand }} {{memory.model}} {{memory.module_type}} {{memory.speed_cycles}}
                         </option>
                     </select>
@@ -52,9 +52,9 @@
             <p>Graphics Card</p>
             <div class="komp-selection">
                 <label for="graphicsCard"></label>
-                    <select v-model="build.video_cardSelect" id="graphicsCard" name="graphicsCard" class="form-control" tabindex="12">
+                    <select v-model="build.video_card" id="graphicsCard" name="graphicsCard" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Graphics Card</option>
-                        <option v-for="video_card in video_cards" :value="video_card.id" :key="video_card.id">
+                        <option v-for="video_card in video_cards" :value="video_card.brand + ' ' + video_card.brand + ' ' + video_card.chipset + ' ' + video_card.vram_total" :key="video_card.id">
                             {{ video_card.brand }} {{video_card.chipset}} {{video_card.vram_total}}
                         </option>
                     </select>
@@ -66,9 +66,9 @@
             <p>Power Supply</p>
             <div class="komp-selection">
                 <label for="powerSupply"></label>
-                    <select v-model="build.power_supplySelect" id="powerSupply" name="powerSupply" class="form-control" tabindex="12">
+                    <select v-model="build.power_supply" id="powerSupply" name="powerSupply" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Power Supply</option>
-                        <option v-for="power_supply in power_supplys" :value="power_supply.id" :key="power_supply.id">
+                        <option v-for="power_supply in power_supplys" :value="power_supply.brand + ' ' + power_supply.model + ' ' + power_supply.efficiency_rating + ' ' + power_supply.wattage" :key="power_supply.id">
                             {{ power_supply.brand }} {{power_supply.model}} {{power_supply.efficiency_rating}} {{power_supply.wattage}}
                         </option>
                     </select>
@@ -80,9 +80,9 @@
             <p>Case</p>
             <div class="komp-selection">
                 <label for="case"></label>
-                    <select v-model="build.caseSelect" id="case" name="case" class="form-control" tabindex="12">
+                    <select v-model="build.case" id="case" name="case" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Case</option>
-                        <option v-for="i in cases" :value="i.id" :key="i.id">
+                        <option v-for="i in cases" :value="i.brand + ' ' + i.model + ' ' + i.form_factor + ' ' + i.color" :key="i.id">
                             {{ i.brand }} {{i.model}} {{i.form_factor}} {{i.color}}
                         </option>
                     </select>
@@ -94,9 +94,9 @@
             <p>Hard Drive 1</p>
             <div class="komp-selection">
                 <label for="hardDrive"></label>
-                    <select v-model="build.internal_hard_driveSelect" id="hardDrive" name="hardDrive" class="form-control" tabindex="12">
+                    <select v-model="build.internal_hard_drive" id="hardDrive" name="hardDrive" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Hard Drive</option>
-                        <option v-for="internal_hard_drive in internal_hard_drives" :value="internal_hard_drive.id" :key="internal_hard_drive.id">
+                        <option v-for="internal_hard_drive in internal_hard_drives" :value="internal_hard_drive.brand + ' ' + internal_hard_drive.model + ' ' + internal_hard_drive.capacity_total + ' ' + internal_hard_drive.storage_type + ' ' + internal_hard_drive.interface" :key="internal_hard_drive.id">
                             {{ internal_hard_drive.brand }} {{internal_hard_drive.model}} {{internal_hard_drive.capacity_total}} {{internal_hard_drive.storage_type}} {{internal_hard_drive.interface}}
                         </option>
                     </select>
@@ -108,9 +108,9 @@
             <p>Keyboard</p>
             <div class="komp-selection">
                 <label for="keyboard"></label>
-                    <select v-model="build.keyboardSelect" id="keyboard" name="keyboard" class="form-control" tabindex="12">
+                    <select v-model="build.keyboard" id="keyboard" name="keyboard" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Keyboard</option>
-                        <option v-for="keyboard in keyboards" :value="keyboard.id" :key="keyboard.id">
+                        <option v-for="keyboard in keyboards" :value="keyboard.brand + ' ' + keyboard.style + ' ' + keyboard.switches + ' ' + keyboard.backlight + ' ' + keyboard.connection" :key="keyboard.id">
                             {{ keyboard.brand }} {{keyboard.model}} {{keyboard.style}} {{keyboard.switches}} {{keyboard.backlight}} {{keyboard.connection}}
                         </option>
                     </select>
@@ -122,9 +122,9 @@
             <p>Mouse</p>
             <div class="komp-selection">
                 <label for="mouse"></label>
-                    <select v-model="build.mouseSelect" id="mouse" name="mouse" class="form-control" tabindex="12">
+                    <select v-model="build.mouse" id="mouse" name="mouse" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Mouse</option>
-                        <option v-for="mouse in mouses" :value="mouse.id" :key="mouse.id">
+                        <option v-for="mouse in mouses" :value="mouse.brand + ' ' + mouse.model + ' ' + mouse.connection" :key="mouse.id">
                             {{ mouse.brand }} {{mouse.model}} {{mouse.connection}}
                         </option>
                     </select>
@@ -136,9 +136,9 @@
             <p>Monitor</p>
             <div class="komp-selection">
                 <label for="monitor"></label>
-                    <select v-model="build.monitorSelect" id="monitor" name="monitor" class="form-control" tabindex="12">
+                    <select v-model="build.monitor" id="monitor" name="monitor" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Monitor</option>
-                        <option v-for="monitor in monitors" :value="monitor.id" :key="monitor.id">
+                        <option v-for="monitor in monitors" :value="monitor.brand + ' ' + monitor.model + ' ' + monitor.size + ' ' + monitor.panel_type" :key="monitor.id">
                             {{ monitor.brand }} {{monitor.model}} {{monitor.size}} {{monitor.panel_type}}
                         </option>
                     </select>
@@ -150,9 +150,9 @@
             <p>CPU Cooler</p>
             <div class="komp-selection">
                 <label for="cpu_cooler"></label>
-                    <select v-model="build.cpu_coolerSelect" id="cpu_cooler" name="cpu_cooler" class="form-control" tabindex="12">
+                    <select v-model="build.cpu_cooler" id="cpu_cooler" name="cpu_cooler" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose CPU Cooler</option>
-                        <option v-for="cpu_cooler in cpu_coolers" :value="cpu_cooler.id" :key="cpu_cooler.id">
+                        <option v-for="cpu_cooler in cpu_coolers" :value="cpu_cooler.brand + ' ' + cpu_cooler.model + ' ' + cpu_cooler.color" :key="cpu_cooler.id">
                             {{ cpu_cooler.brand }} {{cpu_cooler.model}} {{cpu_cooler.color}}
                         </option>
                     </select>
@@ -164,9 +164,9 @@
             <p>Case Fan</p>
             <div class="komp-selection">
                 <label for="caseFan"></label>
-                    <select v-model="build.case_fanSelect" id="caseFan" name="caseFan" class="form-control" tabindex="12">
+                    <select v-model="build.case_fan" id="caseFan" name="caseFan" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Case Fan</option>
-                        <option v-for="case_fan in case_fans" :value="case_fan.id" :key="case_fan.id">
+                        <option v-for="case_fan in case_fans" :value="case_fan.brand + ' ' + case_fan.model + ' ' + case_fan.size + ' ' + case_fan.color" :key="case_fan.id">
                             {{ case_fan.brand }} {{case_fan.model}} {{case_fan.size}} {{case_fan.color}}
                         </option>
                     </select>
@@ -178,9 +178,9 @@
             <p>Wireless Network Card</p>
             <div class="komp-selection">
                 <label for="wireless_network_card"></label>
-                    <select v-model="build.wireless_network_cardSelect" id="wireless_network_card" name="wireless_network_card" class="form-control" tabindex="12">
+                    <select v-model="build.wireless_network_card" id="wireless_network_card" name="wireless_network_card" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Wireless Network Card</option>
-                        <option v-for="wireless_network_card in wireless_network_cards" :value="wireless_network_card.id" :key="wireless_network_card.id">
+                        <option v-for="wireless_network_card in wireless_network_cards" :value="wireless_network_card.brand + ' ' + wireless_network_card.model + ' ' + wireless_network_card.supported_protocols + ' ' + wireless_network_card.interface" :key="wireless_network_card.id">
                             {{ wireless_network_card.brand }} {{wireless_network_card.model}} {{wireless_network_card.supported_protocols}} {{wireless_network_card.interface}}
                         </option>
                     </select>
@@ -192,9 +192,9 @@
             <p>Wired Network Card</p>
             <div class="komp-selection">
                 <label for="wired_network_card"></label>
-                    <select v-model="build.wired_network_cardSelect" id="wired_network_card" name="wired_network_card" class="form-control" tabindex="12">
+                    <select v-model="build.wired_network_card" id="wired_network_card" name="wired_network_card" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Wired Network Card</option>
-                        <option v-for="wired_network_card in wired_network_cards" :value="wired_network_card.id" :key="wired_network_card.id">
+                        <option v-for="wired_network_card in wired_network_cards" :value="wired_network_card.brand + ' ' + wired_network_card.model + ' ' + wired_network_card.interface" :key="wired_network_card.id">
                             {{ wired_network_card.brand }} {{wired_network_card.model}} {{wired_network_card.interface}}
                         </option>
                     </select>
@@ -206,9 +206,9 @@
             <p>Optical Drive</p>
             <div class="komp-selection">
                 <label for="optical_drive"></label>
-                    <select v-model="build.optical_driveSelect" id="optical_drive" name="optical_drive" class="form-control" tabindex="12">
+                    <select v-model="build.optical_drive" id="optical_drive" name="optical_drive" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Optical Drive</option>
-                        <option v-for="optical_drive in optical_drives" :value="optical_drive.id" :key="optical_drive.id">
+                        <option v-for="optical_drive in optical_drives" :value="optical_drive.brand + ' ' + optical_drive.model" :key="optical_drive.id">
                             {{ optical_drive.brand }} {{optical_drive.model}}
                         </option>
                     </select>
@@ -220,9 +220,9 @@
             <p>Sound Card</p>
             <div class="komp-selection">
                 <label for="sound_card"></label>
-                    <select v-model="build.sound_cardSelect" id="sound_card" name="sound_card" class="form-control" tabindex="12">
+                    <select v-model="build.sound_card" id="sound_card" name="sound_card" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Sound Card</option>
-                        <option v-for="sound_card in sound_cards" :value="sound_card.id" :key="sound_card.id">
+                        <option v-for="sound_card in sound_cards" :value="sound_card.brand + ' ' + sound_card.model + ' ' + sound_card.interface" :key="sound_card.id">
                             {{ sound_card.brand }} {{sound_card.model}} {{sound_card.interface}}
                         </option>
                     </select>
@@ -234,9 +234,9 @@
             <p>Speakers</p>
             <div class="komp-selection">
                 <label for="speakers"></label>
-                    <select v-model="build.speakersSelect" id="speakers" name="speakers" class="form-control" tabindex="12">
+                    <select v-model="build.speakers" id="speakers" name="speakers" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Speakers</option>
-                        <option v-for="speakers in speakerss" :value="speakers.id" :key="speakers.id">
+                        <option v-for="speakers in speakerss" :value="speakers.brand + ' ' + speakers.model" :key="speakers.id">
                             {{ speakers.brand }} {{speakers.model}}
                         </option>
                     </select>
@@ -248,9 +248,9 @@
             <p>Headphones</p>
             <div class="komp-selection">
                 <label for="headphones"></label>
-                    <select v-model="build.headphonesSelect" id="headphones" name="headphones" class="form-control" tabindex="12">
+                    <select v-model="build.headphones" id="headphones" name="headphones" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Headphones</option>
-                        <option v-for="headphones in headphoness" :value="headphones.id" :key="headphones.id">
+                        <option v-for="headphones in headphoness" :value="headphones.brand + ' ' + headphones.model + ' ' + headphones.form_factor" :key="headphones.id">
                             {{ headphones.brand }} {{headphones.model}} {{headphones.form_factor}}
                         </option>
                     </select>
@@ -262,9 +262,9 @@
             <p>UPS</p>
             <div class="komp-selection">
                 <label for="ups"></label>
-                    <select v-model="build.upsSelect" id="ups" name="ups" class="form-control" tabindex="12">
+                    <select v-model="build.ups" id="ups" name="ups" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose UPS</option>
-                        <option v-for="ups in upss" :value="ups.id" :key="ups.id">
+                        <option v-for="ups in upss" :value="ups.brand + ' ' + ups.model + ' ' + ups.watt_capacity + ' ' + ups.va_capacity" :key="ups.id">
                             {{ ups.brand }} {{ups.model}} {{ups.watt_capacity}} {{ups.va_capacity}}
                         </option>
                     </select>
@@ -276,9 +276,9 @@
             <p>Thermal Paste</p>
             <div class="komp-selection">
                 <label for="thermal_paste"></label>
-                    <select v-model="build.thermal_pasteSelect" id="thermal_paste" name="thermal_paste" class="form-control" tabindex="12">
+                    <select v-model="build.thermal_paste" id="thermal_paste" name="thermal_paste" class="form-control" tabindex="12">
                         <option value="" selected disabled hidden>Choose Thermal Paste</option>
-                        <option v-for="thermal_paste in thermal_pastes" :value="thermal_paste.id" :key="thermal_paste.id">
+                        <option v-for="thermal_paste in thermal_pastes" :value="thermal_paste.brand + ' ' + thermal_paste.model + ' ' + thermal_paste.amount" :key="thermal_paste.id">
                             {{ thermal_paste.brand }} {{thermal_paste.model}} {{thermal_paste.amount}}
                         </option>
                     </select>
@@ -309,7 +309,6 @@ export default {
         motherboards: [],
         memorys: [],
         internal_hard_drives: [],
-        external_hard_drives: [],
         cases: [],
         video_cards: [],
         power_supplys: [],
@@ -327,31 +326,30 @@ export default {
         upss: [],
         thermal_pastes: [],
         errors: [],
+        saveBuild: [],
         build: {
             title: '',
-            cpuSelect: '',
-            motherboardSelect: '',
-            memorySelect: '',
-            internal_hard_driveSelect: '',
-            external_hard_driveSelect: '',
-            caseSelect: '',
-            video_cardSelect: '',
-            power_supplySelect: '',
-            keyboardSelect: '',
-            mouseSelect: '',
-            monitorSelect: '',
-            cpu_coolerSelect: '',
-            case_fanSelect: '',
-            wireless_network_cardSelect: '',
-            wired_network_cardSelect: '',
-            optical_driveSelect: '',
-            sound_cardSelect: '',
-            speakersSelect: '',
-            headphonesSelect: '',
-            upsSelect: '',
-            thermal_pasteSelect: ''
-        },
-        savedBuild: ''
+            cpu: '',
+            motherboard: '',
+            memory: '',
+            internal_hard_drive: '',
+            case: '',
+            video_card: '',
+            power_supply: '',
+            keyboard: '',
+            mouse: '',
+            monitor: '',
+            cpu_cooler: '',
+            case_fan: '',
+            wireless_network_card: '',
+            wired_network_card: '',
+            optical_drive: '',
+            sound_card: '',
+            speakers: '',
+            headphones: '',
+            ups: '',
+            thermal_paste: ''
+        }
     }
   },
   // Fetches posts when the component is created.
@@ -360,7 +358,6 @@ export default {
     this.loadmotherboard();
     this.loadmemory();
     this.loadinternal_hard_drive();
-    this.loadexternal_hard_drive();
     this.loadcase();
     this.loadvideo_card();
     this.loadpower_supply();
@@ -394,10 +391,6 @@ export default {
     async loadinternal_hard_drive(){
     const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/internal_hard_drive`)
     this.internal_hard_drives = response.data
-    },
-    async loadexternal_hard_drive(){
-    const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/external_hard_drive`)
-    this.external_hard_drives = response.data
     },
     async loadcase(){
     const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/case`)
@@ -463,9 +456,9 @@ export default {
     const response = await axios.get(`https://34.101.183.41:5000/api/v1/parts/thermal_paste`)
     this.thermal_pastes = response.data
     },
-    async saveBuild(){
-      const response = await axios.post(`https://34.101.183.41:5000/api/v1/builds/`, this.build, { headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS","Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"}})
-      this.savedBuild = response.data
+    async loadsaveBuild(){
+      const response = await axios.post(`https://34.101.183.41:5000/api/v1/builds/`, this.build)
+      this.saveBuild = response.data
     }
   }
 }

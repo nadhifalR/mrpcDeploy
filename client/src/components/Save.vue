@@ -19,133 +19,121 @@
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>CPU</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.cpu}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Motherboard</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.motherboard}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Memory</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.memory}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>  
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Graphics Card</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.video_card}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Power Supply</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.power_supply}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Case</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.case}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div> 
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
-                    <p>Hard Drive 1</p>
-                    <p>Part_Name</p>
-                    <p>Rp.x.xxx.xxx</p>
-                    <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
-                </div> 
-                <div class="simulasi-container-horizontal text-xs lg:text-xl">
-                    <p>Hard Drive 2</p>
-                    <p>Part_Name</p>
-                    <p>Rp.x.xxx.xxx</p>
-                    <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
-                </div> 
-                <div class="simulasi-container-horizontal text-xs lg:text-xl">
-                    <p>Hard Drive 3</p>
-                    <p>Part_Name</p>
+                    <p>Hard Drive</p>
+                    <p>{{savedBuilds.internal_hard_drive}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div> 
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Keyboard</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.keyboard}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Mouse</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.mouse}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Monitor</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.monitor}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>CPU Cooler</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.cpu_cooler}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Case Fan</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.case_fan}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Wireless Network Card</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.wireless_network_card}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Wired Network Card</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.wired_network_card}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Optical Drive</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.optical_drive}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Sound Card</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.sound_card}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Speakers</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.speakers}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Headphones</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.headphones}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>UPS</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.ups}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
                 <div class="simulasi-container-horizontal text-xs lg:text-xl">
                     <p>Thermal Paste</p>
-                    <p>Part_Name</p>
+                    <p>{{savedBuilds.thermal_paste}}</p>
                     <p>Rp.x.xxx.xxx</p>
                     <button @click="() => TogglePopup('buttonTrigger')" class="beli-btn">Beli Sekarang</button> 
                 </div>
@@ -166,10 +154,26 @@
 
 <script>
 import { ref } from 'vue'
+import axios from 'axios'
 
 export default{
+    id: 'builds',
+    data(){
+        return{
+            savedBuilds: []
+        }
+    },
     mounted () {
         window.scrollTo(0, 0)
+    },
+    async mounted(){
+        this.loadSavedBuild();
+    },
+    methods: {
+        async loadSavedBuild(){
+            const response = await axios.get(`https://34.101.183.41:5000/api/v1/builds/`+this.$route.params.id)
+            this.savedBuilds = response.data
+        }
     }
 }
 </script>

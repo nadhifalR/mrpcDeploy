@@ -18,7 +18,7 @@ const routes = [
     },
 
     {
-        path: '/Save',
+        path: '/Save/:id',
         name: 'Save',
         component: Save,
     },

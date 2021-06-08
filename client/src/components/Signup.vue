@@ -3,7 +3,7 @@
         <div class="login-Container bg-green1 top-0 bottom-0 left-0 right-0 fixed m-auto w-5/6 lg:w-3/6 z-50 inline-block justify-center text-center">
             <img @click="ToggleLogin();" class="cursor-pointer w-8 lg:w-10 ml-auto mr-2 mt-2" src="../assets/closeB.svg">
             <p class="text-loginB text-4xl mt-6 mb-3 mx-8 lg:text-7xl title">SIGN UP</p>
-            <form v-on:submit.prevent="register" @submit="ToggleLogin();" class="form relative mx-8 md:mx-16 py-3">
+            <form v-on:submit.prevent="register" class="form relative mx-8 md:mx-16 py-3">
                 <input v-model="form.email" type="email" placeholder="Email" class="signInput bg-green1 w-full rounded-xl py-3 px-4 mt-3 mb-5 mx-auto block text-center text-base md:text-lg xl:text-2xl text-loginB">
                 <input v-model="form.name" type="text" placeholder="Your Name" class="signInput bg-green1 w-full rounded-xl py-3 px-4 mt-3 mb-5 mx-auto block text-center text-base md:text-lg xl:text-2xl text-loginB">
                 <input v-model="form.password" type="password" placeholder="Password" class="signInput bg-green1 w-full rounded-xl py-3 px-4 mt-3 mb-5 mx-auto block text-center text-base md:text-lg xl:text-2xl text-loginB">
