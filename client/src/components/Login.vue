@@ -38,6 +38,7 @@ export default {
       const response = await axios.post(`https://34.101.183.41:5000/api/v1/users/`, this.form)
       this.token = response.data
       localStorage.setItem("token", token)
+      this.ToggleLogin()
     }
   }
 }
