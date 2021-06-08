@@ -4,8 +4,8 @@
 
       <div class="mainContainer h-auto my-3 mx-5 lg:mx-16 p-0 overflow-hidden xl:mx-44 ">
             <div class="save-grid-container grid p-0 my-6 text-white text-base leading-none xl:leading-none ">
-                <p class="text-5xl font-bold xl:text-7xl">Nama_Build</p>
-                <p class="subtitle text-right align-text-bottom mt-auto font-bold text-lg">By User_name</p>
+                <p class="text-5xl font-bold xl:text-7xl">{{ savedBuilds.title }}</p>
+                <p class="subtitle text-right align-text-bottom mt-auto font-bold text-lg">By User id : {{ id }}</p>
             </div>
 
             <div class="line w-full h-1 bg-green1 my-3 overflow-hidden"> </div>
@@ -153,7 +153,8 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRoute } from 'vue-router'
 import axios from 'axios'
 
 export default{
@@ -182,6 +183,9 @@ export default{
 import Header from './Header.vue'
 import Footer from './Footer.vue'
 import Market from './Market.vue'
+
+const route = useRoute();
+const id = computed(() => route.params.id);
 
 const popupTriggers = ref({
     buttonTrigger:false

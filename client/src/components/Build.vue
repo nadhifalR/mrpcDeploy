@@ -10,8 +10,8 @@
             </div>
 
             <ul class="grid grid-cols-2 md:grid-cols-3">
-                <li v-for="build in builds" :key="build.id">
-                    <div class="sim-rekcard rounded-2xl bg-black ml-4 mb-4">
+                <router-link v-for="build in builds" :to="{name:'Save', params: {id: build.id} }" :key="build.id">
+                    <!-- <div class="sim-rekcard rounded-2xl bg-black ml-4 mb-4">
                         <div class="sim-rekcard-img w-full h-20 xl:h-32 bg-aqua rounded-t-2xl overflow-hidden">
                             <img class="w-full" src="../assets/pc1.jpg">
                         </div>
@@ -23,8 +23,19 @@
                             <p>{{build.video_card}}</p>
                             <p>{{build.case}}</p>
                         </div>
-                    </div>
-                </li>
+                    </div> -->
+                    <BuildCard  class="cursor-pointer">
+                        <p class="sim-rekcard-Title text-black text-xs md:text-sm xl:text-lg m-0 bg-green1">{{build.title}}</p>
+                        <p class="sim-rekcard-Subtitle text-black text-xs md:text-sm xl:text-lg m-0 bg-green1">Total Harga Rp.XX.XXX.XXX</p>
+                        <div class="sim-rekcard-detail text-xs text-white m0">
+                            <p>{{build.id}}</p>
+                            <p>{{build.cpu}}</p>
+                            <p>{{build.memory}}</p>
+                            <p>{{build.video_card}}</p>
+                            <p>{{build.case}}</p>
+                        </div>
+                    </BuildCard>
+                </router-link>
             </ul>
         </div>
         <Footer/>
@@ -33,7 +44,8 @@
 
 <script>
 import axios from 'axios'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRoute } from 'vue-router'
 
 export default{
     data(){
@@ -59,6 +71,10 @@ export default{
 <script setup>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
+import BuildCard from './BuildCard.vue'
+
+const route = useRoute();
+const id = computed(() => route.params.id);
 
 const popupTriggers = ref({
     buttonTrigger:false
