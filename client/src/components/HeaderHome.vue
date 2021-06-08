@@ -27,6 +27,7 @@ const loginTriggers = ref({
 
 const ToggleLogin = (trigger) => {
     loginTriggers.value[trigger] = !loginTriggers.value[trigger]
+    console.log('hello1');
 }
 </script>
 

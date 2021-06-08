@@ -39,6 +39,7 @@ export default {
       this.token = response.data
       localStorage.setItem("token", token)
       this.ToggleLogin()
+      console.log('hello2');
     }
   }
 }
